@@ -24,10 +24,72 @@ import Form from '../components/Form.astro'
 					</div>
 				</div>
 
-				<div class="flex-grow">
+				<div class="flex-grow relative">
 					<Form />
+				</div>
+			</div>
+
+
+			<div id="success-form" class="invisible md:max-w-[325px]">
+				<div class="flex items gap-2">
+					<svg class="self-start" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+							<path fill="#D9D9D9" d="M0 0h32v32H0z" />
+						</mask>
+						<g mask="url(#a)">
+							<path
+								d="m14.1337 22.1333 9.4-9.4-1.8667-1.8667L14.1337 18.4l-3.8-3.8-1.86671 1.8666 5.66671 5.6667Zm1.8666 7.2c-1.8444 0-3.5778-.35-5.2-1.05-1.6222-.7-3.03331-1.65-4.23331-2.85-1.2-1.2-2.15-2.6111-2.85-4.2333-.7-1.6223-1.05-3.3556-1.05-5.2 0-1.8445.35-3.5778 1.05-5.2.7-1.62226 1.65-3.03337 2.85-4.23337 1.2-1.2 2.61111-2.15 4.23331-2.85 1.6222-.7 3.3556-1.05 5.2-1.05 1.8445 0 3.5778.35 5.2 1.05 1.6222.7 3.0334 1.65 4.2334 2.85 1.2 1.2 2.15 2.61111 2.85 4.23337.7 1.6222 1.05 3.3555 1.05 5.2 0 1.8444-.35 3.5777-1.05 5.2-.7 1.6222-1.65 3.0333-2.85 4.2333-1.2 1.2-2.6112 2.15-4.2334 2.85-1.6222.7-3.3555 1.05-5.2 1.05Z"
+								fill="#386340" />
+						</g>
+					</svg>
+
+					<div class="flex flex-col gap-2">
+						<p class="text-[18px] md:text-[24px] leading-5 font-medium">Спасибо!</p>
+						<p class="text-[14px] md:text-[16px] text-[#53705D]">Ваше сообщение отправлено</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<style>
+		#success-form {
+				background-color: white;
+				border-radius: 17px;
+				padding: 12px;
+				position: fixed;
+				left: 0;
+				right: 0;
+				bottom: 30px;
+				margin: 0 16px;
+				z-index: 40;
+        transition: 0.5s ease-in-out, transform 0.5s ease-in-out;
+		}
+
+    @media (min-width: 768px) {
+        #success-form {
+            left: auto;
+            margin: 0 16px;
+						padding: 16px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        #success-form {
+            right: 0;
+            left: auto;
+            margin: 0 40px;
+        }
+    }
+
+    .invisible {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    .show {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+</style>
