@@ -1,26 +1,25 @@
 <script>
-	const button = document.getElementById('submitButton')
-	const toast = document.getElementById('success-form')
-	const nameInput = document.getElementById('name')
-	const emailInput = document.getElementById('email')
-	const commentInput = document.getElementById('comment')
-	const nameError = document.getElementById('nameError')
-	const emailError = document.getElementById('emailError')
-	const commentError = document.getElementById('commentError')
+	const button = document.getElementById('submitButton') as HTMLButtonElement | null;
+	const toast = document.getElementById('success-form') as HTMLElement | null
+	const nameInput = document.getElementById('name') as HTMLInputElement | null
+	const emailInput = document.getElementById('email') as HTMLInputElement | null
+	const commentInput = document.getElementById('comment') as HTMLTextAreaElement | null
+	const nameError = document.getElementById('nameError') as HTMLSpanElement | null
+	const emailError = document.getElementById('emailError') as HTMLSpanElement | null
+	const commentError = document.getElementById('commentError') as HTMLSpanElement | null
 
-	button.addEventListener('click', submitForm)
+	button ? button.addEventListener('click', submitForm) : ''
 
-	async function submitForm(event) {
+	async function submitForm(event: Event) {
 		event.preventDefault()
 
-		nameError.innerText = ''
-		emailError.innerText = ''
-		commentError.innerText = ''
+		if (nameError) nameError.innerText = ''
+		if (emailError) emailError.innerText = ''
+		if (commentError) commentError.innerText = ''
 
-
-		const name = nameInput.value
-		const email = emailInput.value
-		const message = commentInput.value
+		const name = nameInput ? nameInput.value : ''
+		const email = emailInput ? emailInput.value : ''
+		const message = commentInput ? commentInput.value : ''
 
 		console.log(name, email, message)
 
@@ -38,25 +37,29 @@
 
 			if (result.errors) {
 				const errors = result.errors
-				if (errors.name) {
+				if (errors.name && nameError) {
 					nameError.innerText = errors.name.join(', ')
 				}
-				if (errors.email) {
+				if (errors.email && emailError) {
 					emailError.innerText = errors.email.join(', ')
 				}
-				if (errors.message) {
+				if (errors.message && commentError) {
 					commentError.innerText = errors.message.join(', ')
 				}
 			} else {
-				toast.classList.remove('invisible')
-				toast.classList.add('show');
+				if (toast) {
+					toast.classList.remove('invisible')
+					toast.classList.add('show');
 
-				clearForm()
+					clearForm()
 
-				setTimeout(() => {
-					toast.classList.remove('show')
-					toast.classList.add('invisible')
-				}, 5000)
+					setTimeout(() => {
+						if (toast) {
+							toast.classList.remove('show')
+							toast.classList.add('invisible')
+						}
+					}, 5000)
+				}
 			}
 		} catch (error) {
 			console.log(error)
@@ -64,9 +67,9 @@
 	}
 
 	function clearForm() {
-		nameInput.value = '';
-		emailInput.value = '';
-		commentInput.value = '';
+		if (nameInput) nameInput.value = ''
+		if (emailInput) emailInput.value = ''
+		if (commentInput) commentInput.value = ''
 	}
 </script>
 
