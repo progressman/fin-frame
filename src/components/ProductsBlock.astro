@@ -1,0 +1,87 @@
+---
+const products = [
+	{
+		tag: 'ПО',
+		icon: 'public/svg/processing-icon.svg',
+		title: 'Процессинг',
+		subtitle: 'Технологическое обеспечение процессов оказания платёжных услуг платёжными организациями, банками и процессинговыми центрами ',
+		link: '/processing'
+	},
+	{
+		tag: 'Сервис',
+		icon: 'public/svg/aml-icon.svg',
+		title: 'AML Compliance 1.0',
+		subtitle: 'Интернет-сервис для обеспечения соблюдения требований ПОД/ФТ и проверок Клиентов по различным критериям',
+		link: 'aml-compliance'
+	},
+	{
+		tag: 'ПО',
+		icon: 'public/svg/recognize-icon.svg',
+		title: 'Recognize Facade 1.0',
+		subtitle: 'Обработка результатов распознавания фотографий документа, удостоверяющего личность, и селфи клиента',
+		link: 'recognize-facade'
+	}
+]
+---
+
+
+<section class="bg-[#ECFFEE]">
+	<div class="py-8 px-4 lg:py-16 lg:px-10 max-w-7xl mx-auto">
+		<div class="mb-8 lg:mb-16">
+			<div class="w-fit rounded-xl bg-[#D6F2BD3D]">
+				<p class="px-[12px] py-[10px] lg:text-[20px] text-[#60996A]">Продукты</p>
+			</div>
+		</div>
+
+
+		<div class="lg:flex lg:items-center lg:justify-between">
+			<div class="mb-8 lg:mb-16 md:w-7/12 lg:w-6/12 max-w-[576px]">
+				<h2 class="text-[22px] leading-[30.8px] lg:text-[36px] lg:leading-[50px] text-[#282828]">
+					Программное обеспечение <nobr>и сервисы</nobr>, которые мы предоставляем
+				</h2>
+			</div>
+		</div>
+
+		<div class="grid sm:grid-cols-2 gap-[0.75rem]">
+			{products.map((product) => (
+				// card
+				<div class="min-h-[343px] lg:min-h-[376px] bg-white p-4 flex flex-col justify-between rounded-[32px]">
+					<div>
+						<div class="flex justify-between">
+							<div class="flex-col">
+								<div class="w-fit rounded-xl bg-[#D6F2BD3D] mb-3">
+									<p class="p-3 lg:text-[20px] text-[#60996A]">{product.tag}</p>
+								</div>
+								<h2 class="text-[22px] leading-8 lg:text-[36px] lg:leading-[50px] mb-3">{product.title}</h2>
+							</div>
+							<div><img class="lg:w-20 lg:h-20" src={product.icon} alt={`${product.title} icon`}></div>
+						</div>
+						<p class="text-[#53705D] lg:text-[20px] lg:leading-8">{product.subtitle}</p>
+					</div>
+
+
+					<a href={product.link} class="w-fit rounded-[2rem]">Подробнее
+						<span class="flex justify-center items-center bg-white size-8 rounded-full">
+							<svg width="8" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M4.6 6 0 1.4 1.4 0l6 6-6 6L0 10.6 4.6 6Z" fill="#386340" /></svg>
+						</span>
+					</a>
+				</div>
+			))}
+
+		</div>
+	</div>
+</section>
+
+
+<style>
+    a {
+        border: 2px solid #386340;
+        color: #386340;
+        display: flex;
+        align-items: center;
+        padding: 10px 4px 10px 14px;
+				font-weight: 500;
+        @apply lg:text-[20px]
+    }
+</style>
