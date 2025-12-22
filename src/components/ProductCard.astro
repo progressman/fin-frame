@@ -20,7 +20,7 @@ const { title, tag, subtitle, icon, link } = Astro.props
 
 	<a
 		href={link}
-		class="flex h-[52px] w-fit items-center justify-center rounded-[2rem] text-center leading-[150%] tracking-[-0.01em] lg:h-[56px] lg:w-[166px] lg:text-[20px]"
+		class="flex h-[52px] w-fit items-center justify-center gap-[2px] rounded-[2rem] text-center leading-[150%] tracking-[-0.01em] lg:h-[56px] lg:w-[166px] lg:text-[20px]"
 		>Подробнее
 		<span class="flex size-8 items-center justify-center rounded-full bg-white">
 			<svg width="8" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@ const { title, tag, subtitle, icon, link } = Astro.props
 		color: #386340;
 		display: flex;
 		align-items: center;
-		padding: 10px 8px 10px 14px;
+		padding: 10px 4px 10px 14px;
 		font-weight: 500;
 		@apply lg:text-[20px];
 	}
