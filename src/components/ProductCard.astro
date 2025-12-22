@@ -2,38 +2,42 @@
 const { title, tag, subtitle, icon, link } = Astro.props
 ---
 
-<div class="min-h-[343px] lg:min-h-[376px] bg-white p-4 flex flex-col justify-between rounded-[32px]">
+<div
+	class="flex min-h-[343px] flex-col justify-between rounded-[32px] bg-white p-4 lg:min-h-[376px]"
+>
 	<div>
 		<div class="flex justify-between">
 			<div class="flex-col">
-				<div class="w-fit rounded-xl bg-[#D6F2BD3D] mb-3">
-					<p class="p-3 lg:text-[20px] text-[#60996A]">{tag}</p>
+				<div class="mb-3 w-fit rounded-xl bg-[#D6F2BD3D]">
+					<p class="p-3 text-[#60996A] lg:text-[20px]">{tag}</p>
 				</div>
-				<h2 class="text-[22px] leading-8 lg:text-[36px] lg:leading-[50px] mb-3">{title}</h2>
+				<h2 class="mb-3 text-[22px] leading-8 lg:text-[36px] lg:leading-[50px]">{title}</h2>
 			</div>
-			<div><img class="lg:w-20 lg:h-20" src={icon} alt={`${title} icon`}></div>
+			<div><img class="lg:h-20 lg:w-20" src={icon} alt={`${title} icon`} /></div>
 		</div>
-		<p class="text-[#53705D] lg:text-[20px] lg:leading-8">{subtitle}</p>
+		<p class="mb-4 text-[#53705D] lg:text-[20px] lg:leading-8">{subtitle}</p>
 	</div>
 
-
-	<a href={link} class="w-fit rounded-[2rem]">Подробнее
-		<span class="flex justify-center items-center bg-white size-8 rounded-full">
+	<a
+		href={link}
+		class="flex h-[52px] w-fit items-center justify-center rounded-[2rem] text-center leading-[150%] tracking-[-0.01em] lg:h-[56px] lg:w-[166px] lg:text-[20px]"
+		>Подробнее
+		<span class="flex size-8 items-center justify-center rounded-full bg-white">
 			<svg width="8" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M4.6 6 0 1.4 1.4 0l6 6-6 6L0 10.6 4.6 6Z" fill="#386340" />
+				<path d="M4.6 6 0 1.4 1.4 0l6 6-6 6L0 10.6 4.6 6Z" fill="#386340"></path>
 			</svg>
 		</span>
 	</a>
 </div>
 
 <style>
-    a {
-        border: 2px solid #386340;
-        color: #386340;
-        display: flex;
-        align-items: center;
-        padding: 10px 4px 10px 14px;
-        font-weight: 500;
-        @apply lg:text-[20px]
-    }
+	a {
+		border: 2px solid #386340;
+		color: #386340;
+		display: flex;
+		align-items: center;
+		padding: 10px 8px 10px 14px;
+		font-weight: 500;
+		@apply lg:text-[20px];
+	}
 </style>
