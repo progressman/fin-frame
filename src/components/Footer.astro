@@ -65,10 +65,15 @@
 
 			<div class="border-t border-[#94D697] border-opacity-40 pt-6">
 				<p class="text-[14px] text-[##1D2126] opacity-50">
-					© 2025 <br /> ООО «ФИНФРЕЙМ». Все права защищены. <br />
+					© <span id="footer-year">2026</span>
+					<br /> ООО «ФИНФРЕЙМ». Все права защищены. <br />
 					<a href="/docs/privacy-policy.pdf">Политика обработки персональных данных</a>
 				</p>
 			</div>
 		</div>
 	</div>
 </footer>
+
+<script>
+	document.getElementById('footer-year').textContent = new Date().getFullYear()
+</script>
